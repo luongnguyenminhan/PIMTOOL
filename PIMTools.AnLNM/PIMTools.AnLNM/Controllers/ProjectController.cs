@@ -19,9 +19,9 @@ namespace PIMTools.AnLNM.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllProjects([FromQuery] PaginationParameter paginationParameter)
+        public async Task<IActionResult> GetAllProjects([FromQuery] PaginationParameter paginationParameter, int currentPage)
         {
-            var pros = await _projectService.GetAllProjectAsync(paginationParameter);
+            var pros = await _projectService.GetAllProjectAsync(paginationParameter, currentPage);
             var metadata = new
             {
                 pros.TotalCount,

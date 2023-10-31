@@ -14,16 +14,16 @@ namespace PIMTools.AnLNM.Repositories
         {
             _context = context;
         }
-        public async Task<PagedList<Employee>> GetAllEmnployeesAsync(PaginationParameter paginationParameter)
+        public async Task<PagedList<Employee>> GetAllEmnployeesAsync(PaginationParameter paginationParameter, int currentPage)
         {
             if (_context == null)
             {
                 return null;
             }
-            var emps = await _context.Employees.ToListAsync();
+            var emps = await _context.Employees.Skip((currentPage - 1) * paginationParameter.PageSize).Take(paginationParameter.PageSize).ToListAsync();
 
             return PagedList<Employee>.ToPagedList(emps,
-                paginationParameter.PageNumber,
+                currentPage,
                 paginationParameter.PageSize);
         }
 

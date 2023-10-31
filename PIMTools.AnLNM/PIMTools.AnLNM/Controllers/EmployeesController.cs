@@ -19,9 +19,9 @@ namespace PIMTools.AnLNM.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllEmployees([FromQuery] PaginationParameter paginationParameter) 
+        public async Task<IActionResult> GetAllEmployees([FromQuery] PaginationParameter paginationParameter, int currentPage) 
         { 
-            var emps = await _employeeService.GetEmployeeListAsync(paginationParameter);
+            var emps = await _employeeService.GetEmployeeListAsync(paginationParameter, currentPage);
             var metadata = new
             {
                 emps.TotalCount,

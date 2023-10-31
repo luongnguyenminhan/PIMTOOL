@@ -5,7 +5,7 @@ namespace PIMTools.AnLNM.Services
 {
     public interface IProjectService
     {
-        Task<PagedList<Project>> GetAllProjectAsync(PaginationParameter paginationParameter);
+        Task<PagedList<Project>> GetAllProjectAsync(PaginationParameter paginationParameter, int currentPage);
         Task<Project> GetProjectByIdAsync(int id);
         Task<int> AddProjectAsync(Project project);
         Task<int> UpdateProjectAsync(Project project);

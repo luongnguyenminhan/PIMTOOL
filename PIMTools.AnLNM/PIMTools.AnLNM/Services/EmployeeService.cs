@@ -23,9 +23,9 @@ namespace PIMTools.AnLNM.Services
             return await _service.GetEmployeeByIdAsync(id);
         }
 
-        public async Task<PagedList<Employee>> GetEmployeeListAsync(PaginationParameter paginationParameter)
+        public async Task<PagedList<Employee>> GetEmployeeListAsync(PaginationParameter paginationParameter, int currentPage)
         {
-            return await _service.GetAllEmnployeesAsync(paginationParameter);
+            return await _service.GetAllEmnployeesAsync(paginationParameter, currentPage);
         }
 
         public async Task<int> UpdateEmployeeAsync(Employee employee)

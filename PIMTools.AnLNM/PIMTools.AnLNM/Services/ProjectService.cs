@@ -18,9 +18,9 @@ namespace PIMTools.AnLNM.Services
             return await _service.GetProjectByIdAsync(id);
         }
 
-        public async Task<PagedList<Project>> GetAllProjectAsync(PaginationParameter paginationParameter)
+        public async Task<PagedList<Project>> GetAllProjectAsync(PaginationParameter paginationParameter, int currentPage)
         {
-            return await _service.GetAllProjectAsync(paginationParameter);
+            return await _service.GetAllProjectAsync(paginationParameter, currentPage);
         }
 
         public async Task<int> AddProjectAsync(Project project)
